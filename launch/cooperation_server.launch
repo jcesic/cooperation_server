@@ -1,0 +1,19 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+  <arg name="calibration" default=""/>
+
+
+  <node pkg="rviz" type="rviz" name="rviz"/>
+
+  <node pkg="cooperation_server" type="cooperationServer" name="cooperation_server">
+	<param name="param_res"             value="0.20" />
+	<param name="param_probHit"         value="0.63" />
+	<param name="param_probMiss"        value="0.45" />
+	<param name="param_thresMin"        value="0.12" />
+	<param name="param_thresMax"        value="0.97" />
+
+	<param name="max_range"             value="10.0" />
+  </node>
+
+</launch>
