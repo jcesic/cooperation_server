@@ -1,0 +1,34 @@
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <param name="temp_path" value="/media/kruno/Data/TEST/SLAM/"/>
+  <param name="FTP_path" value="/ftpFolder/lamor/"/>
+  <param name="agent_id" type="int" value="0"/>
+  
+  <param name="AUG_S_THRESHOLD" type="double" value="1.5"/>
+  <param name="AUG_TH_THRESHOLD" type="double" value="15.0"/>
+
+  <param name="MATCH_NEIGHBOUR_STATES" type="bool" value="false"/>
+  <param name="MATCH_AS_STATES" type="bool" value="true"/>
+
+  <param name="AS_max_euclidean" type="double" value="1.4"/>
+  <param name="AS_min_index_diff" type="int" value="20"/>
+  <param name="AS_min_topological" type="int" value="5"/>
+  <param name="AS_angle_scale" type="double" value="0.0"/>
+
+  <param name="do_marg" value="false"/>
+  <param name="do_loop_marg" value="false"/>
+  <param name="sparse_every" type="int" value="4"/>
+
+  <param name="Kx" value="30"/>
+  <param name="Ky" value="30"/>
+  <param name="Kz" value="30"/>
+  <param name="Kalpha" value="15"/>
+  <param name="Kbeta" value="15"/>
+  <param name="Ktheta" value="15"/>
+
+<node pkg="coop_lamor_slam" type="odometry_husky" name="odometry_husky" output="screen"/>
+<node pkg="coop_lamor_slam" type="odometrija_mm3d" name="trajectories" output="screen"/>
+<node pkg="coop_lamor_slam" type="coop_lamor_slam" name="coop_lamor_slam" output="screen"/>
+	
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find cooperation_server)/launch/velodyne32.rviz"/>
+</launch>

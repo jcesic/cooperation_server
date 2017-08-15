@@ -1,0 +1,21 @@
+<launch>
+  <param name="temp_path" value="/home/kruno/ftpFolder/"/>
+  <param name="num_agents" type="int" value="2"/>
+  <param name="publish_map" type="bool" value="true"/>
+
+  <param name="angle_scale" type="double" value="0.0"/>
+  <param name="state_angle_TH" type="double" value="2.0"/>
+  <param name="state_t_TH" type="double" value="0.1"/>
+  <param name="max_euclidean_TH" type="double" value="11.0"/>
+  <param name="min_index_TH" type="int" value="14"/>
+
+  <param name="m_res" type="double" value="0.2"/>
+  <param name="m_probHit" type="double" value="0.63"/>
+  <param name="m_probMiss" type="double" value="0.36"/>
+  <param name="m_thresMin" type="double" value="0.12"/>
+  <param name="m_thresMax" type="double" value="0.97"/>
+
+<node pkg="coop_lamor_slam" type="coop_server" name="server" output="screen"/>
+	
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find coop_lamor_slam)/launch/server.rviz"/>
+</launch>
